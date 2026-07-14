@@ -3,8 +3,8 @@ package lextech.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import lextech.model.Usuario;
 import lextech.repository.UsuarioRepository;
@@ -12,8 +12,15 @@ import lextech.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    public UsuarioService(UsuarioRepository usuarioRepository,
+                          BCryptPasswordEncoder passwordEncoder) {
+
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
@@ -27,7 +34,16 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
-    public Usuario guardarUsuario(Usuario usuario) {
+    public Usuario registrarUsuario(Usuario usuario) {
+
+        if (usuarioRepository.existsByEmail(usuario.getEmail())) {
+            throw new RuntimeException("El correo electrónico ya está registrado.");
+        }
+
+        usuario.setPassword(
+                passwordEncoder.encode(usuario.getPassword())
+        );
+
         return usuarioRepository.save(usuario);
     }
 
@@ -35,4 +51,7 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
+    public long contarUsuarios() {
+        return usuarioRepository.count();
+    }
 }

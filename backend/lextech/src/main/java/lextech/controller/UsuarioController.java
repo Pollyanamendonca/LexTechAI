@@ -2,7 +2,10 @@ package lextech.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +14,7 @@ import lextech.service.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -24,4 +28,8 @@ public class UsuarioController {
         return usuarioService.listarUsuarios();
     }
 
+    @PostMapping
+public Usuario crearUsuario(@RequestBody Usuario usuario) {
+    return usuarioService.registrarUsuario(usuario);
+}
 }

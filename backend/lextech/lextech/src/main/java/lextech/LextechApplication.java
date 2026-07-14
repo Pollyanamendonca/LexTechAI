@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LextechApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LextechApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LextechApplication.class, args);
+    }
 
 }

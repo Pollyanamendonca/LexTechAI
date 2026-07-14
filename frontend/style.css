@@ -127,3 +127,71 @@ button:hover{
     background:#1D4ED8;
 
 }
+
+.login-container{
+
+    width:400px;
+
+    background:white;
+
+    margin:80px auto;
+
+    padding:40px;
+
+    border-radius:12px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.15);
+
+}
+
+.login-container h1{
+
+    text-align:center;
+
+    color:#1E3A8A;
+
+}
+
+.login-container h2{
+
+    text-align:center;
+
+    margin:20px;
+
+}
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+label{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+input{
+
+    padding:12px;
+
+    margin-top:8px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+form button{
+
+    margin-top:30px;
+
+}

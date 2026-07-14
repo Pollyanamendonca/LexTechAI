@@ -1,1 +1,1 @@
-console.log("Bienvenido a LexTech AI");
+console.log("LexTech AI iniciado correctamente.");

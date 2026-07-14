@@ -285,3 +285,43 @@ font-size:40px;
 margin-top:10px;
 
 }
+
+.upload{
+
+width:600px;
+
+margin:60px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:12px;
+
+box-shadow:0 0 15px rgba(0,0,0,.15);
+
+text-align:center;
+
+}
+
+.upload h2{
+
+margin:20px;
+
+}
+
+.upload input{
+
+margin:30px;
+
+}
+
+#nombreArchivo{
+
+margin:20px;
+
+font-weight:bold;
+
+color:#1E3A8A;
+
+}

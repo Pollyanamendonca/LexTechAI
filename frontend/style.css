@@ -325,3 +325,63 @@ font-weight:bold;
 color:#1E3A8A;
 
 }
+
+.resultado{
+
+width:800px;
+
+margin:50px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:12px;
+
+box-shadow:0 0 20px rgba(0,0,0,.15);
+
+}
+
+.resultado h1{
+
+text-align:center;
+
+color:#1E3A8A;
+
+}
+
+.resultado h2{
+
+text-align:center;
+
+margin:20px;
+
+}
+
+.caja{
+
+background:#F5F7FA;
+
+padding:20px;
+
+margin-top:20px;
+
+border-left:6px solid #2563EB;
+
+border-radius:8px;
+
+}
+
+.caja h3{
+
+margin-bottom:10px;
+
+color:#1E3A8A;
+
+}
+
+.caja ul{
+
+margin-left:20px;
+
+}

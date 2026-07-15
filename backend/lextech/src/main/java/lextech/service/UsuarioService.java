@@ -3,8 +3,8 @@ package lextech.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import lextech.model.Usuario;
 import lextech.repository.UsuarioRepository;
@@ -54,4 +54,17 @@ public class UsuarioService {
     public long contarUsuarios() {
         return usuarioRepository.count();
     }
+
+public Usuario login(String email, String password) {
+
+    Usuario usuario = usuarioRepository.findByEmail(email)
+            .orElseThrow(() ->
+                    new RuntimeException("Usuario no encontrado"));
+
+    if (!passwordEncoder.matches(password, usuario.getPassword())) {
+        throw new RuntimeException("Contraseña incorrecta");
+    }
+
+    return usuario;
+}
 }

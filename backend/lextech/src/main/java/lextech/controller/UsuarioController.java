@@ -32,4 +32,14 @@ public class UsuarioController {
 public Usuario crearUsuario(@RequestBody Usuario usuario) {
     return usuarioService.registrarUsuario(usuario);
 }
+
+@PostMapping("/login")
+public Usuario login(@RequestBody Usuario usuario) {
+
+    return usuarioService.login(
+            usuario.getEmail(),
+            usuario.getPassword()
+    );
+
+}
 }
